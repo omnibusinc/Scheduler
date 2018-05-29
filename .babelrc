@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "env",
+    "stage-0",
+    "react",
+    "es2015"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-object-rest-spread",
+    "react-hot-loader/babel"
+  ]
+}
