@@ -6,32 +6,15 @@ import TimeSlot from '../TimeSlot';
 import ReservationDialog from '../../containers/ReservationDialog';
 
 const SlotListComponent = ({ slots, modalOpen, showModal, hideModal, onChange, reserveSlot }) => {
-  const { am, pm } = slots;
   return (
     <Grid container spacing={16}>
       {
-        Object.keys(am).map(key => {
+        slots.map(slot => {
           return (
-            <Grid item xs={12} sm={4} key={ `${key}_am` }>
+            <Grid item xs={12} sm={4} key={ `${slot.hour}_${slot.am ? 'am' : 'pm'}` }>
               <TimeSlot 
-                hour={ key } 
                 showModal={ showModal } 
-                reserved={ am[key].reserved }
-                reservation={ am[key] } 
-                am />
-            </Grid>
-          )
-        })
-      }
-      {
-        Object.keys(pm).map(key => {
-          return (
-            <Grid item xs={12} sm={4} key={ `${key}_pm` }>
-              <TimeSlot 
-                hour={ key } 
-                showModal={ showModal } 
-                reserved={ pm[key].reserved }
-                reservation={ pm[key] } />
+                reservation={ slot } />
             </Grid>
           )
         })
@@ -41,9 +24,9 @@ const SlotListComponent = ({ slots, modalOpen, showModal, hideModal, onChange, r
   );
 };
 
-const { object, bool, func } = PropTypes;
+const { array, bool, func } = PropTypes;
 SlotListComponent.propTypes = {
-  slots: object.isRequired,
+  slots: array.isRequired,
   modalOpen: bool.isRequired,
   showModal: func.isRequired,
   hideModal: func.isRequired

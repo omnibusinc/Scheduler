@@ -19,12 +19,6 @@ class SlotList extends Component {
     this.setState({ modalOpen: false });
   }
 
-  // reserveSlot(reservation, selectedSlot) {
-  //   const data = Object.assign({}, reservation, selectedSlot);
-  //   this.props.add(data);
-  //   this.hideModal();
-  // }
-
   render() {
     return(
       <View 

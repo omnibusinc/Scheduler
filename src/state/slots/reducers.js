@@ -1,21 +1,18 @@
 import { combineReducers } from 'redux';
+import _ from 'lodash';
 import types from './types';
 
-const INITIAL_STATE_SLOTS = {
-  am: {
-    9: {},
-    10: {},
-    11: {}
-  },
-  pm: {
-    12: {},
-    1: {},
-    2: {},
-    3: {},
-    4: {},
-    5: {}
-  }
-};
+const INITIAL_STATE_SLOTS = [
+  { hour: 9, am: true },
+  { hour: 10, am: true },
+  { hour: 11, am: true },
+  { hour: 12, am: false },
+  { hour: 1, am: false },
+  { hour: 2, am: false },
+  { hour: 3, am: false },
+  { hour: 4, am: false },
+  { hour: 5, am: false }
+]
 
 const INITIAL_STATE_SELECTEDSLOT = {
   name: '',
@@ -25,29 +22,15 @@ const INITIAL_STATE_SELECTEDSLOT = {
 };
 
 const reservationHelper = (state, action) => {
-  const newState = Object.assign({}, state);
-  return action.payload.am ? 
-    { ...newState,
-      am: {
-        ...newState.am,
-        [action.payload.hour]: {
-          name: action.payload.name,
-          phone: action.payload.phone,
-          reserved: true
-        }
-      }
+  const newState = [];
+  state.map(slot => {
+    if(action.payload.hour === slot.hour) {
+      newState.push(Object.assign({}, action.payload, { reserved: true }));
+    } else {
+      newState.push(slot);
     }
-    :
-    { ...newState,
-      pm: {
-        ...newState.pm,
-        [action.payload.hour]: {
-          name: action.payload.name,
-          phone: action.payload.phone,
-          reserved: true
-        }
-      }
-    }
+  })
+  return newState;
 }
 
 const slots = (state = INITIAL_STATE_SLOTS, action) => {
