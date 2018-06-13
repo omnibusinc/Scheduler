@@ -52,7 +52,7 @@ const selectedSlot = (state = INITIAL_STATE_SELECTEDSLOT, action) => {
   }
 };
 
-export default combineReducers({
+export default {
   slots,
   selectedSlot
-});
+};

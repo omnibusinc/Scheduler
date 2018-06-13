@@ -27,9 +27,7 @@ class ReservationDialog extends Component {
   }
 }
 
-const mapStateToProps = ({ slotReducer }) => {
-  return { selectedSlot: slotReducer.selectedSlot };
-};
+const mapStateToProps = ({ selectedSlot }) => ({ selectedSlot })
 
 const { add, update } = slotsActions;
 const mapDispatchToProps = { add, update };

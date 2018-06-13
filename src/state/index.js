@@ -1,7 +1,7 @@
 import slotReducer from './slots';
 
 const reducers = {
-  slotReducer
+  ...slotReducer
 };
 
 export default reducers;

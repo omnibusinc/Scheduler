@@ -30,9 +30,7 @@ class SlotList extends Component {
   }
 }
 
-const mapStateToProps = ({ slotReducer }) => {
-  return { slots: slotReducer.slots };
-};
+const mapStateToProps = ({ slots }) => ({ slots });
 
 const { select } = slotsActions;
 const mapDispatchToProps = { select };
