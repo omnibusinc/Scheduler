@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import View from '../../components/SlotList';
-import { slotsActions } from '../../../state/slots';
+import { select } from '../../../state/slots';
 
 class SlotList extends Component {
   constructor(props, context) {
@@ -31,8 +31,6 @@ class SlotList extends Component {
 }
 
 const mapStateToProps = ({ slots }) => ({ slots });
-
-const { select } = slotsActions;
 const mapDispatchToProps = { select };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlotList);

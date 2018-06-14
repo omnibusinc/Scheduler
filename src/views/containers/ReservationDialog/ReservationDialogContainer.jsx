@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { slotsActions } from '../../../state/slots';
+import { add, update } from '../../../state/slots';
 import View from '../../components/ReservationDialog';
 
 class ReservationDialog extends Component {
@@ -28,8 +28,6 @@ class ReservationDialog extends Component {
 }
 
 const mapStateToProps = ({ selectedSlot }) => ({ selectedSlot })
-
-const { add, update } = slotsActions;
 const mapDispatchToProps = { add, update };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReservationDialog);
