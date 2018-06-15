@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, createMuiTheme } from 'material-ui/styles';
-import Paper from 'material-ui/Paper';
+import { withStyles, createMuiTheme } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import classNames from 'classnames';
 import extendStyles from './BufferedPaperStyles';
 
 const theme = createMuiTheme();
 
-const BufferedPaperComponent = ({ classes, children, background }) => {
+const BufferedPaperComponent = ({ classes, children, background, align }) => {
   const { buffer } = classes;
-  const combinedClasses = classNames(buffer, classes[background]);
+  const combinedClasses = classNames(buffer, classes[background], classes[align]);
   return (
     <Paper className={ combinedClasses }>
       { children }

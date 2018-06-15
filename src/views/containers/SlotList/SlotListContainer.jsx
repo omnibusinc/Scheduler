@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import View from '../../components/SlotList';
+import StackedView from '../../components/SlotListStack';
 import { select } from '../../../state/slots';
 
 class SlotList extends Component {
@@ -20,12 +20,20 @@ class SlotList extends Component {
   }
 
   render() {
+    const viewProps = {
+      slots: this.props.slots,
+      modalOpen: this.state.modalOpen,
+      showModal: this.showModal.bind(this),
+      hideModal: this.hideModal.bind(this)
+    }
     return(
-      <View 
-        slots={ this.props.slots } 
-        modalOpen={ this.state.modalOpen }
-        showModal={ this.showModal.bind(this) }
-        hideModal={ this.hideModal.bind(this) } />
+      <div>
+      {
+        this.props.layout === 'row'
+          ? <View { ...viewProps } />
+          : <StackedView { ...viewProps } />
+      }
+      </div>
     );
   }
 }

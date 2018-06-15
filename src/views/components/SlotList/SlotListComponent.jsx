@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, createMuiTheme } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
+import Grid from '@material-ui/core/Grid';
 import TimeSlot from '../TimeSlot';
 import ReservationDialog from '../../containers/ReservationDialog';
 
