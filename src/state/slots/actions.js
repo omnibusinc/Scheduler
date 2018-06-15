@@ -21,4 +21,4 @@ const update = data => {
   }
 }
 
-export default { add, select, update };
+export { add, select, update };

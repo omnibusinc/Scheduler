@@ -19,6 +19,9 @@ const InstructionsComponent = ({ classes }) => {
           <div>
             Slots in red have already been reserved.
           </div>
+          <div>
+            Use the icon in the top-right to toggle the layout.
+          </div>
         </BufferedPaper>
       </Grid>
     </Grid>

@@ -20,12 +20,20 @@ class SlotList extends Component {
   }
 
   render() {
+    const viewProps = {
+      slots: this.props.slots,
+      modalOpen: this.state.modalOpen,
+      showModal: this.showModal.bind(this),
+      hideModal: this.hideModal.bind(this)
+    }
     return(
-      <StackedView 
-        slots={ this.props.slots } 
-        modalOpen={ this.state.modalOpen }
-        showModal={ this.showModal.bind(this) }
-        hideModal={ this.hideModal.bind(this) } />
+      <div>
+      {
+        this.props.layout === 'row'
+          ? <View { ...viewProps } />
+          : <StackedView { ...viewProps } />
+      }
+      </div>
     );
   }
 }
