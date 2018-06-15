@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, createMuiTheme } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
+import { withStyles, createMuiTheme } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import BufferedPaper from '../BufferedPaper';
 import styles from './InstructionsComponentStyles';
 

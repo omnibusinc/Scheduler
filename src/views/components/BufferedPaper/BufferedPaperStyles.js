@@ -10,6 +10,9 @@ const extendStyles = (theme) => (
     red: {
       backgroundColor: '#ba000d',
       color: theme.palette.common.white
+    },
+    center: {
+      textAlign: 'center'
     }
   })
 );
